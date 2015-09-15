@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone tutorial</title>
+    
+    <link href='css/style.css' rel='stylesheet' type='text/css'/>
+
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/underscore.js" type="text/javascript"></script>
+    <script src="js/backbone.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <!-- templates to route between each other -->
+    <!-- template to inject using backbone views -->
+    <script type="text/template" id="first_template">
+        <label> My 1st View </label>   
+        <a href="#second">Go to 2nd View</a>  
+    </script>
+    <!-- end of template -->
+
+    <!-- template to inject using backbone views -->
+    <script type="text/template" id="second_template">
+        <label> My 2nd View </label>   
+        <a href="#first">Go to 1st View</a>  
+    </script>
+    <!-- end of template -->
+    <!-- end of list of templates -->
+
+
+    <div id="container"></div>
+
+
+    <script type="text/javascript">
+
+        //declare and initialize all views
+        FirstView = Backbone.View.extend({
+            //view have a element property EL
+            //reference an element in the DOM
+            el : $("#container"),
+            //stuff will be generated inside "container" tag
+            initialize: function(){
+                this.render();
+            },
+
+            //render the predef event inside the container class
+            render: function(){
+                var template = _.template($('#first_template').html(), {});
+                this.$el.html(template);
+            }
+
+        });
+
+        SecondView = Backbone.View.extend({
+            //view have a element property EL
+            //reference an element in the DOM
+            el : $("#container"),
+            //stuff will be generated inside "container" tag
+            initialize: function(){
+                this.render();
+            },
+
+            //render the predef event inside the container class
+            render: function(){
+                var template = _.template($('#second_template').html(), {});
+                this.$el.html(template);
+            }
+
+        });
+        //end of views
+
+        //declare and initialize a router
+        MyRouter = Backbone.Router.extend({
+            routes:{
+                //when default url "" 
+                "" : "fistPage",
+                //if http://.../index.html#first
+                //#first was the tag used in the first template 
+                //we route to the firstPage function
+                "first" : "firstPage",
+                //same for second template
+                "second" : "secondPage",
+            },
+
+            //trigger views
+            firstPage: function(){
+                //if firstPage is call 
+                //we instantiate the view fistView
+                new FirstView();
+            },
+
+            //trigger views
+            secondPage: function(){
+                //if secondPage is call 
+                //we instantiate the view secondView
+                new SecondView();
+            }
+
+        });
+
+        //initialize a router Object
+        var router = new MyRouter();
+        Backbone.history.start();
+
+        
+        </script>
+    </body>
+    </html>

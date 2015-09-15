@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone tutorial</title>
+    <link href='css/style.css' rel='stylesheet' type='text/css'/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/underscore.js" type="text/javascript"></script>
+    <script src="js/backbone.js" type="text/javascript"></script>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+        //model declaration
+        //Person model
+        Person = Backbone.Model.extend({
+            //constructor
+            initialize: function(){
+                console.log("object is created");
+
+                //track changes to the model
+                //inside on() function 
+                //we set the attr to track
+                //and the action to perform 
+                //if we just give change it will fire on all changes 
+                this.on("change:name", function(){
+                    alert("name atribute value has been changed");
+                });
+            },
+            
+            //defining atributes
+            defaults: {
+                name: "default",
+                age: "0"
+            },
+
+            //model functions
+            getNameAndAge: function(){
+                console.log("Name is: "+this.get('name')+" and is " +this.get('age')+" years old");
+            },
+
+        });
+
+        //creating a Person object
+        var steve = new Person();
+        console.log(steve.get('name'));
+        console.log(steve.get('age'));
+
+        //Overwriting default attr
+        var simon = new Person({ name:"Simon", age:"30" });
+        console.log(simon.get('name'));
+        console.log(simon.get('age'));
+
+        //function calls
+        steve.getNameAndAge();
+
+        //change attr values
+        //set() function is predef to test changes trigger
+        steve.set({name:"Steve"});
+
+
+
+    </script>
+</body>
+</html>
