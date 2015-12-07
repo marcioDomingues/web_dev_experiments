@@ -1,0 +1,34 @@
+body {
+    background: #bbb;
+    font-family: arial;
+}
+
+h1, h2, p, li {
+    color: #555;
+    
+}
+
+a {
+    color: #0f0;
+    text-decoration: none;
+}
+
+p {
+    background: #666;
+    color: white;
+    padding: 10px 6px;
+}
+
+p:hover {
+    text-transform: uppercase;
+}
+
+.primary {
+}
+
+.secondary {
+    background: none;
+    color: #666;
+}
+
+

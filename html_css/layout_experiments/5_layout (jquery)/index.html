@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery fun with...</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- //for first 2 -->
+        <!-- <div class="jumbotron">
+            <h1>jquery fun with...</h1>
+            <button id="btn1" data-panelID="panel1">#btn1</button>
+            <button id="btn2" data-panelID="panel2">#btn2</button>
+            <button id="btn3" data-panelID="panel3">#btn3</button>
+            <button id="btn4" data-panelID="panel4">#btn4</button>
+        </div> -->
+        <!-- for last -->
+        <div class="jumbotron">
+            <h1>jquery fun with...</h1>
+            <button class="panel-button" data-panelid="panel1">#btn1</button>
+            <button class="panel-button" data-panelid="panel2">#btn2</button>
+            <button class="panel-button" data-panelid="panel3">#btn3</button>
+            <button class="panel-button" data-panelid="panel4">#btn4</button>
+        </div>
+
+    </div>
+
+    <div class="col-xs-3">
+        <div id="panel1" class="panel panel-primary">
+            <div class="panel-heading">#panel1</div>
+            <div class="panel-body">content</div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div id="panel2" class="panel panel-primary">
+            <div class="panel-heading">#panel2</div>
+            <div class="panel-body">content</div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div id="panel3" class="panel panel-primary">
+            <div class="panel-heading">#panel3</div>
+            <div class="panel-body">content</div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div id="panel4" class="panel panel-primary">
+            <div class="panel-heading">#panel4</div>
+            <div class="panel-body">content</div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- jquery stuff -->
+    <script>
+
+    $(document).ready(function($) {
+        //trying stuff
+/*      
+    ////////////////////////////////////////
+    //jquery actions
+
+    //hide and show methods
+    //chain
+    $("#panel1").hide(300).show(1000);
+    //slide up and down and delays        
+    $("#panel2").slideUp(300).delay(1000).slideDown(1000);
+    //fade     
+    //fade toogle -> changes the event between 2   
+    $("#panel3").fadeOut(300).delay(1000).fadeIn(1000);
+
+    //change css
+    //like javascript object notation
+    $("#panel4").css({
+        "font-weight": 'bold',
+        color: 'red'
+    });
+    //hide and show
+    //like css display: none
+    $("#panel4").hide(2000);
+    $("#panel2").css('opacity', '0.5');        
+*/
+
+/*    
+    ////////////////////////////////////////
+    //jquery writting html to the DOM
+    $('#btn1').html('My BUTTON');
+    $('#panel').html('another name!');
+
+    //EVent Binding
+    //listen to 1st argument -> Event
+    //run function
+    $('#btn1').on('click', function () {
+        $('#panel1').fadeToggle(3000);
+        
+    });
+
+    $('#btn2').on('click', function () {
+        $('#panel2').fadeToggle(200);
+        
+    });
+
+    $('#btn3').on('click', function () {
+        $('#panel3').fadeToggle(200);
+        
+    });
+
+    $('#btn4').on('mouseover', function () {
+        $('#panel4').fadeToggle(200);
+        
+    });
+
+
+      $('#panel1').on('click', function () {
+        $('#panel1 .panel-body').html('some new text to be loaded').delay(1000);
+        
+    });
+
+    $('#btn1').on('click', function () {
+        $('#panel1').toggle();
+    });
+    $('#btn2').on('click', function () {
+        $('#panel2').toggle();
+    });
+    $('#btn3').on('click', function () {
+        $('#panel3').toggle();
+    });
+    $('#btn4').on('click', function () {
+        $('#panel4').toggle();
+    });
+*/
+
+    //jquery minimize code 
+    //Writing Smarter, Better Code
+    
+    //using data atributes
+    
+    var content = "new content";
+
+    $('.panel-button').on('click', function () {
+        //get the action origin
+        var panelID = $(this).attr('data-panelid');
+        $('#'+panelID).toggle();
+        $('#'+panelID+' .panel-body').html(content);
+    });
+
+    });
+
+    </script>
+</body>
+</html> 

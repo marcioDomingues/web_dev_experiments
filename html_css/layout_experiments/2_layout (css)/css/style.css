@@ -1,0 +1,104 @@
+body {
+    margin: 0px;
+    background: #ddd;
+    font-family: arial;
+}
+
+
+/*header*/
+header {
+    background: #999;
+    color: white;
+
+    width:100%;
+}
+
+header h1{
+    display: inline-block;
+    margin: 0px;
+    padding: 15px 15px 0 15px;
+}
+
+/*nav*/
+nav ul {
+    display: inline-block;
+    margin: 0px;
+    padding: 0 0 0 15px;
+}
+
+nav ul li {
+    background: black;
+    color: white;
+
+    display: inline-block;
+    list-style-type: none;
+
+    padding: 5px 15px;
+    margin: 0px; 
+}
+
+nav ul li a {
+    color: white;
+}
+
+
+/*central page*/
+.wrapper{
+    /*border: 1px solid green;
+    border-radius: 5px;*/
+    padding: 15px 0 15px 0;
+    width:98%;
+    margin: auto;
+}
+
+.divider{
+    /*border: 1px solid red;
+    border-radius: 1px;*/
+
+    height: 10px;
+    margin: 0px;
+    padding: 0px; 
+}
+
+
+.row {
+    /*border: 1px solid blue;
+    border-radius: 5px;*/
+    margin: 10px;
+    padding: 1px;
+
+    /*width: 100%;*/
+    /*margin: auto;*/ 
+}
+
+.row:after {
+    content: "";
+    clear: both;
+    display: table;
+
+}
+
+.col {
+
+    background: #333;
+    color: #ccc;
+    border-radius: 5px;
+    
+    float: left;
+    width: 32%; 
+    padding: 15px .5px;
+    margin: .5%;
+}
+
+/*footer*/
+footer {
+    /* clear: both;
+    or i can do it with pseudo elem
+    :after the rows*/
+    font-size: .6em;
+    position: absolute;
+    bottom: 10px;
+    right:10px;
+}
+
+

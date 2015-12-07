@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js">
+  <head >
+    <meta charset="utf-8">
+    <title>modular_js_experiments</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/original.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    
+    <div class="hero-unit">
+      <h2>Modular JS _3</h2>
+      <p>PUBLISH SUBSCRIBE PATTERN (observer)</p>
+      
+      <div id="statsModule">
+          <script id="stats-template" type="text/template">
+            <p>people count: {{people}}</p>
+          </script>
+      </div>  
+      
+    </div>
+
+    <div id="peopleModule">
+      <h1>people</h1>
+      <input placeholder="name" type="text">
+      <button id="addPerson">Add Person</button>
+      
+      <ul id="people">
+        <script id="people-template" type="text/template">
+          {{#people}}
+            <li>
+              <span>{{.}}</span>
+              <i class="del">X</i>
+            </li>
+          {{/people}} 
+        </script>
+      </ul>
+      
+    </div>
+
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="scripts/libs/jquery/dist/jquery.js"></script>
+    <script src="scripts/libs/mustache.js/mustache.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    
+    <script src="scripts/stats.js"></script>
+    <script src="scripts/modular.js"></script>
+    <script src="scripts/pubsub.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

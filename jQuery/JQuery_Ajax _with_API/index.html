@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Ajax tutorial</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+
+    <h1>jQuery Ajax Tutorial With Node Api</h1>
+    <h2>Coffee Orders</h2>
+    <ul id="orders"></ul>
+
+    <template id = "order-template">
+        <li data-id={{id}}>
+            <p>
+                <h4>ORDER Nr: {{id}}</h4>
+                <strong>Name: </strong>
+                <span class="noedit name">{{name}}</span>
+                <input class="edit name"/>
+            </p>
+            <p>
+                <strong>Drink:</strong> 
+                <span class="noedit drink">{{drink}}</span>
+                <input class="edit drink"/>
+            </p>
+
+            <button data-id='{{id}}' class='remove'>X</button>
+            <button class="editOrder noedit">Edit</button>
+            <button class="saveEdit edit">Save</button>
+            <button class=" cancelEdit edit">Cancel</button>
+
+        </li>
+    </template>
+
+    <h4>Add a Coffee Order</h4>
+    <p>name:<input type="text" id="name"></p>
+    <p>drink:<input type="text" id="drink"></p>
+    <button id="add-order">Add!</button>
+
+
+
+    <script src="js/libs/jquery-2.1.4.js"></script>
+    <script src="js/libs/mustache.js"></script> 
+    <script src="js/main.js"></script> 
+
+</body>
+</html>
